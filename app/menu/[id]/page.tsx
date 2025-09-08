@@ -90,10 +90,10 @@ export default function PublicMenuPage() {
         }
         const data: MenuData = await response.json()
         setMenuData(data)
-        
+
         // Group items by category
         const categoryMap = new Map<string, Category>()
-        
+
         data.menuItems.forEach((item: MenuItem) => {
           if (!categoryMap.has(item.categoryId)) {
             categoryMap.set(item.categoryId, {
@@ -192,8 +192,8 @@ export default function PublicMenuPage() {
   }
 
   return (
-    <Box 
-      sx={{ 
+    <Box
+      sx={{
         minHeight: '100vh',
         backgroundColor: 'white',
         fontFamily: 'serif',
@@ -208,17 +208,17 @@ export default function PublicMenuPage() {
       }}
     >
       {/* Print Button - Hidden when printing */}
-      <Box sx={{ 
-        position: 'fixed', 
-        top: 16, 
-        right: 16, 
+      <Box sx={{
+        position: 'fixed',
+        top: 16,
+        right: 16,
         zIndex: 1000,
         '@media print': {
           display: 'none'
         }
       }}>
-        <Button 
-          variant="contained" 
+        <Button
+          variant="contained"
           onClick={handlePrint}
           sx={{ backgroundColor: 'primary.main' }}
         >
@@ -227,7 +227,7 @@ export default function PublicMenuPage() {
       </Box>
 
       {/* Menu Content */}
-      <Box sx={{ 
+      <Box sx={{
         maxWidth: '800px',
         margin: '0 auto',
         padding: { xs: 1.5, sm: 2, md: 2.5 },
@@ -237,7 +237,7 @@ export default function PublicMenuPage() {
         <Box sx={{ textAlign: 'center', mb: 2.5, position: 'relative' }}>
           {/* QR Code - Centered on mobile, top-left on desktop */}
           {qrCodeUrl && (
-            <Box sx={{ 
+            <Box sx={{
               position: { xs: 'static', sm: 'absolute' },
               top: { sm: 0 },
               left: { sm: 0 },
@@ -265,8 +265,8 @@ export default function PublicMenuPage() {
                 alt="Menu QR Code"
                 width={80}
                 height={80}
-                style={{ 
-                  border: '2px solid #ddd', 
+                style={{
+                  border: '2px solid #ddd',
                   borderRadius: '8px',
                   backgroundColor: 'white'
                 }}
@@ -283,9 +283,9 @@ export default function PublicMenuPage() {
               `}</style>
             </Box>
           )}
-          <Typography 
-            variant="h2" 
-            sx={{ 
+          <Typography
+            variant="h2"
+            sx={{
               fontWeight: 'bold',
               fontFamily: 'serif',
               color: '#2c3e50',
@@ -297,11 +297,11 @@ export default function PublicMenuPage() {
           >
             {menuData.restaurant.name}
           </Typography>
-          
+
           {menuData.restaurant.description && (
-            <Typography 
-              variant="h6" 
-              sx={{ 
+            <Typography
+              variant="h6"
+              sx={{
                 fontStyle: 'italic',
                 color: '#7f8c8d',
                 mb: 1.5,
@@ -312,10 +312,10 @@ export default function PublicMenuPage() {
             </Typography>
           )}
 
-          <Box sx={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            gap: 3, 
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 3,
             flexWrap: 'wrap',
             mb: 1
           }}>
@@ -331,8 +331,8 @@ export default function PublicMenuPage() {
             )}
           </Box>
 
-          <Divider sx={{ 
-            mt: 2, 
+          <Divider sx={{
+            mt: 2,
             mb: 1,
             height: 3,
             backgroundColor: '#34495e',
@@ -358,7 +358,7 @@ export default function PublicMenuPage() {
             {categories.map((category) => (
               <Box key={category.id} sx={{ mb: 2, pageBreakInside: 'avoid' }}>
                 {/* Category Header */}
-                <Box sx={{ 
+                <Box sx={{
                   mb: 3,
                   textAlign: 'center',
                   '@media print': {
@@ -371,9 +371,9 @@ export default function PublicMenuPage() {
                     px: 4,
                     py: 1
                   }}>
-                    <Typography 
-                      variant="h3" 
-                      sx={{ 
+                    <Typography
+                      variant="h3"
+                      sx={{
                         fontWeight: 'bold',
                         fontFamily: 'serif',
                         color: '#2c3e50',
@@ -402,9 +402,9 @@ export default function PublicMenuPage() {
                     </Typography>
                   </Box>
                   {category.description && (
-                    <Typography 
-                      variant="body1" 
-                      sx={{ 
+                    <Typography
+                      variant="body1"
+                      sx={{
                         fontStyle: 'italic',
                         color: '#7f8c8d',
                         mt: 1.5,
@@ -423,9 +423,9 @@ export default function PublicMenuPage() {
                 {/* Menu Items */}
                 <Stack spacing={1.5}>
                   {category.items?.map((item, index) => (
-                    <Box 
+                    <Box
                       key={item.id}
-                      sx={{ 
+                      sx={{
                         display: 'flex',
                         alignItems: 'flex-start',
                         gap: { xs: 1.5, sm: 2, md: 3 },
@@ -442,7 +442,7 @@ export default function PublicMenuPage() {
                     >
                       {/* Menu Item Image */}
                       {item.imageUrl && (
-                        <Box sx={{ 
+                        <Box sx={{
                           flexShrink: 0,
                           cursor: 'pointer',
                           transition: 'transform 0.2s ease',
@@ -475,7 +475,7 @@ export default function PublicMenuPage() {
                       )}
 
                       {/* Content Area */}
-                      <Box sx={{ 
+                      <Box sx={{
                         flex: 1,
                         minWidth: 0,
                         display: 'flex',
@@ -483,17 +483,17 @@ export default function PublicMenuPage() {
                         gap: 1
                       }}>
                         {/* Name and Price Row */}
-                        <Box sx={{ 
-                          display: 'flex', 
-                          justifyContent: 'space-between', 
+                        <Box sx={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
                           alignItems: 'flex-start',
                           gap: 2
                         }}>
                           <Box sx={{ flex: 1 }}>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 0.25 }}>
-                              <Typography 
-                                variant="h6" 
-                                sx={{ 
+                              <Typography
+                                variant="h6"
+                                sx={{
                                   fontWeight: 'bold',
                                   color: '#2c3e50',
                                   fontSize: { xs: '1.25rem', sm: '1.4rem' },
@@ -507,9 +507,9 @@ export default function PublicMenuPage() {
                                 {item.name}
                               </Typography>
                               {!item.available && (
-                                <Typography 
-                                  variant="caption" 
-                                  sx={{ 
+                                <Typography
+                                  variant="caption"
+                                  sx={{
                                     color: '#e74c3c',
                                     fontWeight: 'bold',
                                     textTransform: 'uppercase',
@@ -526,9 +526,9 @@ export default function PublicMenuPage() {
                             </Box>
                           </Box>
 
-                          <Typography 
-                            variant="h6" 
-                            sx={{ 
+                          <Typography
+                            variant="h6"
+                            sx={{
                               fontWeight: 'bold',
                               color: '#27ae60',
                               fontSize: { xs: '1.2rem', sm: '1.4rem' },
@@ -547,9 +547,9 @@ export default function PublicMenuPage() {
 
                         {/* Description */}
                         {item.description && (
-                          <Typography 
-                            variant="body2" 
-                            sx={{ 
+                          <Typography
+                            variant="body2"
+                            sx={{
                               color: '#6c757d',
                               lineHeight: 1.5,
                               fontSize: { xs: '0.95rem', sm: '1rem' },
@@ -569,9 +569,9 @@ export default function PublicMenuPage() {
                           <Box sx={{ mt: 0.5 }}>
                             {item.selections.map((selection) => (
                               <Box key={selection.id} sx={{ mb: 1, '@media print': { mb: 0.5 } }}>
-                                <Typography 
-                                  variant="caption" 
-                                  sx={{ 
+                                <Typography
+                                  variant="caption"
+                                  sx={{
                                     color: '#495057',
                                     fontWeight: 'bold',
                                     fontSize: '0.85rem',
@@ -586,7 +586,7 @@ export default function PublicMenuPage() {
                                 >
                                   {selection.name}:
                                 </Typography>
-                                <Typography 
+                                <Typography
                                   variant="caption"
                                   sx={{
                                     color: '#6c757d',
@@ -601,8 +601,8 @@ export default function PublicMenuPage() {
                                     <span key={option.id}>
                                       {option.name}
                                       {option.priceAdd > 0 && (
-                                        <span style={{ 
-                                          color: '#27ae60', 
+                                        <span style={{
+                                          color: '#27ae60',
                                           fontWeight: 'bold'
                                         }}>
                                           {' '}(+{formatPrice(option.priceAdd)})
@@ -626,17 +626,17 @@ export default function PublicMenuPage() {
         )}
 
         {/* Footer */}
-        <Box sx={{ 
-          textAlign: 'center', 
-          mt: 3, 
-          pt: 2, 
+        <Box sx={{
+          textAlign: 'center',
+          mt: 3,
+          pt: 2,
           borderTop: '2px solid #bdc3c7',
           pageBreakInside: 'avoid'
         }}>
-          <Typography 
-            variant="h6" 
-            sx={{ 
-              color: '#2c3e50', 
+          <Typography
+            variant="h6"
+            sx={{
+              color: '#2c3e50',
               fontStyle: 'italic',
               fontFamily: 'serif',
               mb: 1
@@ -644,25 +644,25 @@ export default function PublicMenuPage() {
           >
             Thank you for dining with us!
           </Typography>
-          <Typography 
-            variant="body2" 
-            sx={{ 
-              color: '#95a5a6', 
+          <Typography
+            variant="body2"
+            sx={{
+              color: '#95a5a6',
               fontSize: '0.9rem',
               mb: 1
             }}
           >
-            Prices are subject to change without notice
+            Yum!!
           </Typography>
-          <Typography 
-            variant="caption" 
-            sx={{ 
-              color: '#bdc3c7', 
+          <Typography
+            variant="caption"
+            sx={{
+              color: '#bdc3c7',
               fontSize: '0.75rem',
               fontStyle: 'italic'
             }}
           >
-            © 2025 MeFood. Built by Karn Yongsiriwit.
+            Powered by ZeroFood
           </Typography>
         </Box>
       </Box>
@@ -707,10 +707,10 @@ export default function PublicMenuPage() {
           >
             <CloseIcon />
           </IconButton>
-          
+
           {selectedItem && (
-            <Box sx={{ 
-              display: 'flex', 
+            <Box sx={{
+              display: 'flex',
               flexDirection: 'column',
               maxWidth: { xs: '90vw', sm: '600px' },
               width: 'auto'
@@ -732,15 +732,15 @@ export default function PublicMenuPage() {
               )}
               <Box sx={{ p: 3 }}>
                 {/* Name and Price */}
-                <Box sx={{ 
-                  display: 'flex', 
-                  justifyContent: 'space-between', 
+                <Box sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
                   alignItems: 'flex-start',
                   mb: 2
                 }}>
-                  <Typography 
-                    variant="h5" 
-                    sx={{ 
+                  <Typography
+                    variant="h5"
+                    sx={{
                       color: '#2c3e50',
                       fontWeight: 'bold',
                       fontFamily: 'serif',
@@ -750,9 +750,9 @@ export default function PublicMenuPage() {
                   >
                     {selectedItem.name}
                   </Typography>
-                  <Typography 
-                    variant="h5" 
-                    sx={{ 
+                  <Typography
+                    variant="h5"
+                    sx={{
                       color: '#27ae60',
                       fontWeight: 'bold',
                       fontFamily: 'serif'
@@ -764,9 +764,9 @@ export default function PublicMenuPage() {
 
                 {/* Description */}
                 {selectedItem.description && (
-                  <Typography 
-                    variant="body1" 
-                    sx={{ 
+                  <Typography
+                    variant="body1"
+                    sx={{
                       color: '#6c757d',
                       mb: 2,
                       lineHeight: 1.6
@@ -779,9 +779,9 @@ export default function PublicMenuPage() {
                 {/* Options/Selections */}
                 {selectedItem.selections && selectedItem.selections.length > 0 && (
                   <Box sx={{ mt: 2, pt: 2, borderTop: '1px solid #e0e0e0' }}>
-                    <Typography 
-                      variant="subtitle1" 
-                      sx={{ 
+                    <Typography
+                      variant="subtitle1"
+                      sx={{
                         fontWeight: 'bold',
                         color: '#2c3e50',
                         mb: 1
@@ -791,9 +791,9 @@ export default function PublicMenuPage() {
                     </Typography>
                     {selectedItem.selections.map((selection) => (
                       <Box key={selection.id} sx={{ mb: 1.5 }}>
-                        <Typography 
-                          variant="body2" 
-                          sx={{ 
+                        <Typography
+                          variant="body2"
+                          sx={{
                             fontWeight: 600,
                             color: '#495057',
                             mb: 0.5
@@ -801,9 +801,9 @@ export default function PublicMenuPage() {
                         >
                           {selection.name}:
                         </Typography>
-                        <Typography 
-                          variant="body2" 
-                          sx={{ 
+                        <Typography
+                          variant="body2"
+                          sx={{
                             color: '#6c757d',
                             pl: 2
                           }}
@@ -812,8 +812,8 @@ export default function PublicMenuPage() {
                             <span key={option.id}>
                               {option.name}
                               {option.priceAdd > 0 && (
-                                <span style={{ 
-                                  color: '#27ae60', 
+                                <span style={{
+                                  color: '#27ae60',
                                   fontWeight: 'bold'
                                 }}>
                                   {' '}(+{formatPrice(option.priceAdd)})
@@ -831,9 +831,9 @@ export default function PublicMenuPage() {
                 {/* Availability Status */}
                 {!selectedItem.available && (
                   <Box sx={{ mt: 2, p: 1, backgroundColor: '#ffebee', borderRadius: 1 }}>
-                    <Typography 
-                      variant="body2" 
-                      sx={{ 
+                    <Typography
+                      variant="body2"
+                      sx={{
                         color: '#e74c3c',
                         fontWeight: 'bold',
                         textAlign: 'center'
@@ -891,7 +891,7 @@ export default function PublicMenuPage() {
           >
             <CloseIcon />
           </IconButton>
-          
+
           {selectedQR && (
             <Box>
               <Image
@@ -905,10 +905,10 @@ export default function PublicMenuPage() {
                   backgroundColor: 'white'
                 }}
               />
-              <Typography 
-                variant="h6" 
-                sx={{ 
-                  mt: 2, 
+              <Typography
+                variant="h6"
+                sx={{
+                  mt: 2,
                   color: '#2c3e50',
                   fontWeight: 'bold'
                 }}

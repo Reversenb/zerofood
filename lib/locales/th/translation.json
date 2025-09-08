@@ -79,7 +79,7 @@
     "language": "ภาษา"
   },
   "restaurant": {
-    "welcomeToMeFood": "ยินดีต้อนรับสู่ MeFood",
+    "welcomeToZeroFood": "ยินดีต้อนรับสู่ ZeroFood",
     "completeSetup": "กรุณาตั้งค่าร้านอาหารของคุณใน Restaurant Admin เพื่อเริ่มใช้งาน",
     "manageOperations": "จัดการทุกด้านของการดำเนินงานร้านอาหาร ตั้งแต่การจัดการโต๊ะไปจนถึงเวิร์กโฟลว์ห้องครัว",
     "backToDashboard": "กลับสู่แดชบอร์ด",
