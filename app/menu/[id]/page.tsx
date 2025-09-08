@@ -652,7 +652,7 @@ export default function PublicMenuPage() {
               mb: 1
             }}
           >
-            Yum!!
+            Prices are subject to change without notice
           </Typography>
           <Typography
             variant="caption"
@@ -662,7 +662,6 @@ export default function PublicMenuPage() {
               fontStyle: 'italic'
             }}
           >
-            Powered by ZeroFood
           </Typography>
         </Box>
       </Box>
