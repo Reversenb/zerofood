@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "prisma generate && next build",
-    "postinstall": "prisma generate",
     "dev": "next dev",
-    "start": "next start"
+    "build": "prisma generate && next build",
+    "start": "next start -p ${PORT:-3000}",
+    "postinstall": "prisma generate"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
